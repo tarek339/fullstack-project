@@ -1,0 +1,97 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn
+
+# Build outputs (these will be created during Docker build)
+dist/
+build/
+.vite/
+
+# Development files and cache
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Testing
+coverage/
+.nyc_output/
+jest-results.xml
+
+# Logs
+logs/
+*.log
+loglevel
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Git files
+.git/
+.gitignore
+.gitattributes
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+.circleci/
+
+# Documentation
+README.md
+CHANGELOG.md
+LICENSE
+docs/
+*.md
+
+# Docker files (avoid recursive copying)
+Dockerfile
+Dockerfile.*
+docker-compose*.yml
+.dockerignore
+
+# TypeScript cache
+*.tsbuildinfo
+
+# ESLint cache
+.eslintcache
+
+# Prettier
+.prettierrc*
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+
+# Package manager lock files (optional - include if you want to use existing locks)
+# Uncomment the following line if you want to use your existing lock file
+# package-lock.json
+# yarn.lock

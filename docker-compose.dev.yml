@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+  # Backend Service (NestJS) - Development Mode
+  backend-dev:
+    build:
+      context: ./project-name
+      dockerfile: Dockerfile.dev
+    container_name: nestjs-backend-dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./project-name:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+    networks:
+      - app-network
+    restart: unless-stopped
+    command: npm run start:dev
+
+  # Frontend Service (Vite React) - Development Mode
+  frontend-dev:
+    build:
+      context: ./vite-project
+      dockerfile: Dockerfile.dev
+    container_name: react-frontend-dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./vite-project:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://backend-dev:3000
+    depends_on:
+      - backend-dev
+    networks:
+      - app-network
+    restart: unless-stopped
+    command: npm run dev -- --host 0.0.0.0
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  backend-node-modules:
+  frontend-node-modules:
