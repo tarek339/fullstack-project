@@ -6,7 +6,7 @@ async function bootstrap() {
 
   // CORS konfigurieren um Anfragen von Port 5173 zu erlauben
   app.enableCors({
-    origin: ['http://localhost:5173'],
+    origin: ['http://localhost:5173', 'https://localhost'],
     credentials: true,
   });
 
