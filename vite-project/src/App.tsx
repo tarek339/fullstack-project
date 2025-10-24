@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
+  const [message, setMessage] = useState("");
+
   useEffect(() => {
     // Using the Vite proxy - requests to /api/* will be forwarded to localhost:3000
     fetch("/api/")
@@ -13,7 +15,10 @@ function App() {
           return response.text();
         }
       })
-      .then((data) => console.log("Backend response:", data))
+      .then((data) => {
+        console.log("Backend response:", data);
+        setMessage(data);
+      })
       .catch((error) =>
         console.error("Error fetching data:", (error as Error).message)
       );
@@ -23,6 +28,7 @@ function App() {
     <div>
       <h1>Hello Vite + React!</h1>
       <p>Check the browser console for the backend response.</p>
+      <p>Message from backend: {message}</p>
     </div>
   );
 }
