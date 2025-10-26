@@ -25,10 +25,12 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="">
       <h1>Hello Vite + React!</h1>
-      <p>Check the browser console for the backend response.</p>
-      <p>Message from backend: {message}</p>
+      <p>
+        Message from backend:{" "}
+        <span className="font-bold text-blue-500">{message}</span>
+      </p>
     </div>
   );
 }
